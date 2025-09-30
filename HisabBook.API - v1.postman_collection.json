@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "4b7f98c4-96f7-425d-9fc6-4f41145f6021",
+		"name": "HisabBook.API | v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33498662"
+	},
+	"item": [
+		{
+			"name": "TransactionMoney",
+			"item": [
+				{
+					"name": "{ID}",
+					"item": [
+						{
+							"name": "/TransactionMoney/:ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/TransactionMoney/:ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"TransactionMoney",
+										":ID"
+									],
+									"variable": [
+										{
+											"key": "ID",
+											"value": "2fdd0189-2405-64a7-8fc5-f1b3ab658929",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "## 🟢 Update Transaction\n\n**Method:** `PUT`  \n**URL:**\n\n```\n{{baseUrl}}/Transactions/{ID}\n\n ```\n\n**Path Parameters:**\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| ID | GUID | The unique ID of the transaction to update |\n\n---\n\n### 🔹 Headers\n\n```\nContent-Type: application/json\nAccept: application/json\n\n ```\n\n---\n\n### 🔹 Request Body (JSON)\n\nExample JSON for updating a transaction:\n\n``` json\n{\n  \"type\": \"Expense\",\n  \"amount\": 250.00,\n  \"nameCategory\": \"Groceries\",\n  \"notes\": \"Weekly grocery shopping\"\n}\n\n ```\n\n> Note: You can send only the fields you want to update. \n  \n\n---\n\n### 🔹 Success Response (200 OK)\n\n``` json\n{\n  \"type\": \"Expense\",\n  \"amount\": 250.00,\n  \"nameCategory\": \"Groceries\",\n  \"notes\": \"Weekly grocery shopping\"\n}\n\n ```\n\n**Explanation of fields:**\n\n- Returns the updated transaction as confirmation.\n    \n\n---\n\n### 🔹 Error Responses\n\n**Transaction Not Found (404 Not Found)**\n\n``` json\n{\n  \"message\": \"Transaction not found\"\n}\n\n ```\n\n**Validation Error (400 Bad Request)**\n\n``` json\n{\n  \"errors\": {\n    \"Amount\": [\n      \"Amount must be greater than zero\"\n    ],\n    \"NameCategory\": [\n      \"Category name is required\"\n    ]\n  }\n}\n\n ```\n\n**Server Error (500 Internal Server Error)**\n\n``` json\n{\n  \"message\": \"An unexpected error occurred\",\n  \"details\": \"Database error occurred while updating transaction\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/TransactionMoney/:ID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"TransactionMoney",
+												":ID"
+											],
+											"variable": [
+												{
+													"key": "ID",
+													"value": "2fdd0189-2405-64a7-8fc5-f1b3ab658929",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/TransactionMoney/:ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/TransactionMoney/:ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"TransactionMoney",
+										":ID"
+									],
+									"variable": [
+										{
+											"key": "ID",
+											"value": "2fdd0189-2405-64a7-8fc5-f1b3ab658929",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "## 🟢 Delete Transaction\n\n**Method:** `DELETE`  \n**URL:**\n\n```\n{{baseUrl}}/TransactionMoney/{ID}\n\n ```\n\n**Path Parameters:**\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| ID | GUID | The unique ID of the transaction to delete |\n\n---\n\n### 🔹 Headers\n\n```\nAccept: application/json\n\n ```\n\n---\n\n### 🔹 Request Body\n\n- **None** (DELETE request does not require a body)\n    \n\n---\n\n### 🔹 Success Response (200 OK)\n\n``` json\n{}\n\n ```\n\n> Note: Returns an empty response indicating that the transaction was successfully deleted. \n  \n\n---\n\n### 🔹 Error Responses\n\n**Invalid ID (400 Bad Request)**\n\n``` json\n{\n  \"message\": \"Invalid ID\"\n}\n\n ```\n\n**Transaction Not Found (404 Not Found)**\n\n``` json\n{\n  \"message\": \"Transaction not found\"\n}\n\n ```\n\n**Server Error (500 Internal Server Error)**\n\n``` json\n{\n  \"message\": \"An unexpected error occurred\",\n  \"details\": \"Database error occurred while deleting transaction\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/TransactionMoney/:ID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"TransactionMoney",
+												":ID"
+											],
+											"variable": [
+												{
+													"key": "ID",
+													"value": "2fdd0189-2405-64a7-8fc5-f1b3ab658929",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/TransactionMoney/:ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/TransactionMoney/:ID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"TransactionMoney",
+										":ID"
+									],
+									"variable": [
+										{
+											"key": "ID",
+											"value": "2fdd0189-2405-64a7-8fc5-f1b3ab658929",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "## 🟢Get Transaction by ID\n\n**Method:** `GET`  \n**URL:**\n\n```\n{{baseUrl}}/TransactionMoney/{ID}\n\n ```\n\n**Path Parameters:**\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| ID | GUID | The unique ID of the transaction to retrieve |\n\n---\n\n### 🔹 Headers\n\n```\nAccept: application/json\n\n ```\n\n---\n\n### 🔹 Request Body\n\n- **None** (GET request does not require a body)\n    \n\n---\n\n### 🔹 Success Response (200 OK)\n\nExample JSON response:\n\n``` json\n{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"type\": \"Income\",\n  \"amount\": 1500.00,\n  \"nameCategory\": \"Salary\",\n  \"notes\": \"September salary\",\n  \"date\": \"2025-09-15T00:00:00\"\n}\n\n ```\n\n**Explanation of fields:**\n\n- `id` → The unique identifier of the transaction.\n    \n- `type` → `\"Income\"` or `\"Expense\"`.\n    \n- `amount` → Amount of the transaction.\n    \n- `nameCategory` → Category of the transaction.\n    \n- `notes` → Optional notes about the transaction.\n    \n- `date` → Date of the transaction.\n    \n\n---\n\n### 🔹 Error Responses\n\n**Transaction Not Found (404 Not Found)**\n\n``` json\n{\n  \"message\": \"Transaction not found\"\n}\n\n ```\n\n**Validation Error (400 Bad Request)**\n\n``` json\n{\n  \"errors\": {\n    \"ModelState\": [\n      \"Invalid ID format\"\n    ]\n  }\n}\n\n ```\n\n**Server Error (500 Internal Server Error)**\n\n``` json\n{\n  \"message\": \"An unexpected error occurred\",\n  \"details\": \"Database error occurred while fetching transaction\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/TransactionMoney/:ID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"TransactionMoney",
+												":ID"
+											],
+											"variable": [
+												{
+													"key": "ID",
+													"value": "2fdd0189-2405-64a7-8fc5-f1b3ab658929",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"b6f81e7f-1138-7757-32f5-77d85929d78d\",\n  \"type\": 3012,\n  \"amount\": 3659.9775816193182,\n  \"nameCategory\": \"string\",\n  \"notes\": \"string\",\n  \"date\": \"2019-09-19T06:23:56.356Z\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/TransactionMoney",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/TransactionMoney",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"TransactionMoney"
+							]
+						},
+						"description": "## 🟢 Create Transaction\n\n**Method:** `POST`  \n**URL:**\n\n```\n{{baseUrl}}/api/Transactions\n\n ```\n\n---\n\n### 🔹 Headers\n\n```\nContent-Type: application/json\nAccept: application/json\n\n ```\n\n---\n\n### 🔹 Request Body (JSON)\n\nExample for **Income** transaction:\n\n``` json\n{\n  \"type\": \"Income\",\n  \"amount\": 1500.00,\n  \"nameCategory\": \"Salary\",\n  \"notes\": \"September salary\"\n}\n\n ```\n\nExample for **Expense** transaction:\n\n``` json\n{\n  \"type\": \"Expense\",\n  \"amount\": 200.00,\n  \"nameCategory\": \"Food\",\n  \"notes\": \"Lunch with friends\"\n}\n\n ```\n\n---\n\n### 🔹 Success Response (200 OK)\n\n``` json\n{\n  \"type\": \"Income\",\n  \"amount\": 1500.00,\n  \"nameCategory\": \"Salary\",\n  \"notes\": \"September salary\"\n}\n\n ```\n\n---\n\n### 🔹 Error Responses\n\n**Validation Error (400 Bad Request):**\n\n``` json\n{\n  \"errors\": {\n    \"Amount\": [\n      \"Amount must be greater than zero\"\n    ],\n    \"NameCategory\": [\n      \"Category name is required\"\n    ]\n  }\n}\n\n ```\n\n**Server Error (500 Internal Server Error):**\n\n``` json\n{\n  \"message\": \"An unexpected error occurred\",\n  \"details\": \"Database error occurred while saving transaction\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/TransactionMoney",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"TransactionMoney"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"amount\": 1581.281271402387,\n  \"nameCategory\": \"string\",\n  \"type\": null,\n  \"notes\": \"string\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/TransactionMoney/All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/TransactionMoney/All",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"TransactionMoney",
+								"All"
+							]
+						},
+						"description": "## 🟢 Get All Transactions\n\n**Method:** `GET`  \n**URL:**\n\n```\n{{baseUrl}}/api/Transactions/All\n\n ```\n\n---\n\n### 🔹 Headers\n\n```\nAccept: application/json\n\n ```\n\n---\n\n### 🔹 Request Body\n\n- **None** (GET request does not require a body)\n    \n\n---\n\n### 🔹 Success Response (200 OK)\n\nExample JSON response:\n\n``` json\n{\n  \"transactionMoney\": [\n    {\n      \"type\": \"Income\",\n      \"amount\": 1500.00,\n      \"nameCategory\": \"Salary\",\n      \"notes\": \"September salary\"\n    },\n    {\n      \"type\": \"Expense\",\n      \"amount\": 200.00,\n      \"nameCategory\": \"Food\",\n      \"notes\": \"Lunch with friends\"\n    }\n  ],\n  \"totalSalary\": 1300.00\n}\n\n ```\n\n**Explanation of fields:**\n\n- `transactionMoney` → Array of all transactions.\n    \n- `totalSalary` → Total balance (Income minus Expense).\n    \n\n---\n\n### 🔹 Error Responses\n\n**Validation Error (400 Bad Request):**\n\n``` json\n{\n  \"errors\": {\n    \"ModelState\": [\n      \"Invalid request\"\n    ]\n  }\n}\n\n ```\n\n**Server Error (500 Internal Server Error):**\n\n``` json\n{\n  \"message\": \"An unexpected error occurred\",\n  \"details\": \"Database error occurred while fetching transactions\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/TransactionMoney/All",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"TransactionMoney",
+										"All"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"totalSalary\": 734.5092637439787,\n  \"transactionMoney\": [\n    {\n      \"id\": \"e53bfc40-87a8-97ce-b266-7e383aece3fa\",\n      \"type\": 8099,\n      \"amount\": 9009.724318762412,\n      \"nameCategory\": \"string\",\n      \"notes\": \"string\",\n      \"date\": \"2024-05-11T16:35:17.136Z\"\n    },\n    {\n      \"id\": \"1ec53137-4ace-4cf3-ea46-c648c8c219f5\",\n      \"type\": 5868,\n      \"amount\": 3612.3682978570805,\n      \"nameCategory\": \"string\",\n      \"notes\": \"string\",\n      \"date\": \"2005-01-01T10:31:34.235Z\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/TransactionMoney/:Month/:Year",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/TransactionMoney/:Month/:Year",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"TransactionMoney",
+								":Month",
+								":Year"
+							],
+							"variable": [
+								{
+									"key": "Month",
+									"value": "4818",
+									"description": "(Required) "
+								},
+								{
+									"key": "Year",
+									"value": "4818",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "## 🟢 Get Transactions by Month and Year\n\n**Method:** `GET`  \n**URL:**\n\n```\n{{baseUrl}}Transactions/{Month}/{Year}\n\n ```\n\n**Path Parameters:**\n\n| Parameter | Type | Description |\n| --- | --- | --- |\n| Month | int | The month number (1-12) to filter transactions |\n| Year | int | The year (e.g., 2025) to filter transactions |\n\n---\n\n### 🔹 Headers\n\n```\nAccept: application/json\n\n ```\n\n---\n\n### 🔹 Request Body\n\n- **None** (GET request does not require a body)\n    \n\n---\n\n### 🔹 Success Response (200 OK)\n\nExample JSON response:\n\n``` json\n{\n  \"transactionMoney\": [\n    {\n      \"type\": \"Income\",\n      \"amount\": 1500.00,\n      \"nameCategory\": \"Salary\",\n      \"notes\": \"September salary\",\n      \"date\": \"2025-09-15T00:00:00\"\n    },\n    {\n      \"type\": \"Expense\",\n      \"amount\": 200.00,\n      \"nameCategory\": \"Food\",\n      \"notes\": \"Lunch with friends\",\n      \"date\": \"2025-09-16T00:00:00\"\n    }\n  ],\n  \"totalSalary\": 1300.00\n}\n\n ```\n\n**Explanation of fields:**\n\n- `transactionMoney` → Array of filtered transactions for the given month and year.\n    \n- `totalSalary` → Total balance (Income minus Expense) for that period.\n    \n- `date` → Date of the transaction.\n    \n\n---\n\n### 🔹 Error Responses\n\n**Validation Error (400 Bad Request):**\n\n``` json\n{\n  \"errors\": {\n    \"ModelState\": [\n      \"Invalid Month or Year\"\n    ]\n  }\n}\n\n ```\n\n**Server Error (500 Internal Server Error):**\n\n``` json\n{\n  \"message\": \"An unexpected error occurred\",\n  \"details\": \"Database error occurred while fetching transactions\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/TransactionMoney/:Month/:Year",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"TransactionMoney",
+										":Month",
+										":Year"
+									],
+									"variable": [
+										{
+											"key": "Month",
+											"value": "4818",
+											"description": "(Required) "
+										},
+										{
+											"key": "Year",
+											"value": "4818",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"b6f81e7f-1138-7757-32f5-77d85929d78d\",\n  \"type\": 3012,\n  \"amount\": 3659.9775816193182,\n  \"nameCategory\": \"string\",\n  \"notes\": \"string\",\n  \"date\": \"2019-09-19T06:23:56.356Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:7019/",
+			"type": "string"
+		}
+	]
+}
