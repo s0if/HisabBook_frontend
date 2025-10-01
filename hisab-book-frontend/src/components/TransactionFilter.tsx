@@ -18,18 +18,18 @@ const TransactionFilter: React.FC<TransactionFilterProps> = ({
   const years = Array.from({ length: 10 }, (_, i) => currentYear - i);
 
   const months = [
-    { value: 1, label: 'January' },
-    { value: 2, label: 'February' },
-    { value: 3, label: 'March' },
-    { value: 4, label: 'April' },
-    { value: 5, label: 'May' },
-    { value: 6, label: 'June' },
-    { value: 7, label: 'July' },
-    { value: 8, label: 'August' },
-    { value: 9, label: 'September' },
-    { value: 10, label: 'October' },
-    { value: 11, label: 'November' },
-    { value: 12, label: 'December' },
+    { value: 1, label: 'يناير' },
+    { value: 2, label: 'فبراير' },
+    { value: 3, label: 'مارس' },
+    { value: 4, label: 'أبريل' },
+    { value: 5, label: 'مايو' },
+    { value: 6, label: 'يونيو' },
+    { value: 7, label: 'يوليو' },
+    { value: 8, label: 'أغسطس' },
+    { value: 9, label: 'سبتمبر' },
+    { value: 10, label: 'أكتوبر' },
+    { value: 11, label: 'نوفمبر' },
+    { value: 12, label: 'ديسمبر' },
   ];
 
   const handleFilter = () => {
@@ -51,13 +51,13 @@ const TransactionFilter: React.FC<TransactionFilterProps> = ({
     <div className="transaction-filter">
       <div className="filter-inputs">
         <div className="filter-group">
-          <label htmlFor="month">Month:</label>
+          <label htmlFor="month">الشهر:</label>
           <select
             id="month"
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
           >
-            <option value="">All Months</option>
+            <option value="">جميع الأشهر</option>
             {months.map((month) => (
               <option key={month.value} value={month.value}>
                 {month.label}
@@ -67,13 +67,13 @@ const TransactionFilter: React.FC<TransactionFilterProps> = ({
         </div>
 
         <div className="filter-group">
-          <label htmlFor="year">Year:</label>
+          <label htmlFor="year">السنة:</label>
           <select
             id="year"
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
           >
-            <option value="">All Years</option>
+            <option value="">جميع السنوات</option>
             {years.map((year) => (
               <option key={year} value={year}>
                 {year}
@@ -88,11 +88,11 @@ const TransactionFilter: React.FC<TransactionFilterProps> = ({
             className="btn btn-primary btn-sm"
             disabled={!selectedMonth || !selectedYear}
           >
-            Filter
+            تصفية
           </button>
           {isFiltered && (
             <button onClick={handleClear} className="btn btn-secondary btn-sm">
-              Show All
+              عرض الكل
             </button>
           )}
         </div>

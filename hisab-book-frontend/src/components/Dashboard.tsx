@@ -24,24 +24,24 @@ const Dashboard: React.FC<DashboardProps> = ({
     <div className="dashboard">
       <div className="dashboard-cards">
         <div className="dashboard-card balance">
-          <h3>Total Balance</h3>
+          <h3>الرصيد الكلي</h3>
           <p className={`amount ${totalBalance >= 0 ? 'positive' : 'negative'}`}>
             {formatAmount(totalBalance)}
           </p>
         </div>
 
         <div className="dashboard-card income">
-          <h3>Total Income</h3>
+          <h3>إجمالي الدخل</h3>
           <p className="amount positive">{formatAmount(totalIncome)}</p>
         </div>
 
         <div className="dashboard-card expenses">
-          <h3>Total Expenses</h3>
+          <h3>إجمالي المصروفات</h3>
           <p className="amount negative">{formatAmount(totalExpenses)}</p>
         </div>
 
         <div className="dashboard-card count">
-          <h3>Transactions</h3>
+          <h3>المعاملات</h3>
           <p className="count">{transactionCount}</p>
         </div>
       </div>

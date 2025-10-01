@@ -12,6 +12,12 @@ export enum TransactionType {
   Expense = 'Expense'
 }
 
+// Helper function to display transaction type in Arabic
+export const getTransactionTypeLabel = (type: TransactionType | null): string => {
+  if (!type) return '';
+  return type === TransactionType.Income ? 'دخل' : 'مصروف';
+};
+
 export interface TransactionResponse {
   transactionMoney: Transaction[];
   totalSalary: number;

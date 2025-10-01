@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Transaction, TransactionType, CreateTransactionRequest } from '../types/Transaction';
+import { Transaction, TransactionType, CreateTransactionRequest, getTransactionTypeLabel } from '../types/Transaction';
 
 interface TransactionFormProps {
   transaction?: Transaction;
@@ -63,10 +63,10 @@ const TransactionForm: React.FC<TransactionFormProps> = ({
   return (
     <div className="transaction-form-overlay">
       <div className="transaction-form">
-        <h2>{isEditing ? 'Edit Transaction' : 'Add New Transaction'}</h2>
+        <h2>{isEditing ? 'تعديل المعاملة' : 'إضافة معاملة جديدة'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="type">Type:</label>
+            <label htmlFor="type">النوع:</label>
             <select
               id="type"
               name="type"
@@ -74,14 +74,14 @@ const TransactionForm: React.FC<TransactionFormProps> = ({
               onChange={handleChange}
               required
             >
-              <option value="">Select Type</option>
-              <option value={TransactionType.Income}>Income</option>
-              <option value={TransactionType.Expense}>Expense</option>
+              <option value="">اختر النوع</option>
+              <option value={TransactionType.Income}>{getTransactionTypeLabel(TransactionType.Income)}</option>
+              <option value={TransactionType.Expense}>{getTransactionTypeLabel(TransactionType.Expense)}</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="amount">Amount (₪):</label>
+            <label htmlFor="amount">المبلغ (₪):</label>
             <input
               type="number"
               id="amount"
@@ -96,7 +96,7 @@ const TransactionForm: React.FC<TransactionFormProps> = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="nameCategory">Category:</label>
+            <label htmlFor="nameCategory">الفئة:</label>
             <input
               type="text"
               id="nameCategory"
@@ -108,7 +108,7 @@ const TransactionForm: React.FC<TransactionFormProps> = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="notes">Notes:</label>
+            <label htmlFor="notes">ملاحظات:</label>
             <textarea
               id="notes"
               name="notes"
@@ -120,10 +120,10 @@ const TransactionForm: React.FC<TransactionFormProps> = ({
 
           <div className="form-actions">
             <button type="submit" className="btn btn-primary">
-              {isEditing ? 'Update' : 'Add'} Transaction
+              {isEditing ? 'تحديث' : 'إضافة'} المعاملة
             </button>
             <button type="button" onClick={onCancel} className="btn btn-secondary">
-              Cancel
+              إلغاء
             </button>
           </div>
         </form>

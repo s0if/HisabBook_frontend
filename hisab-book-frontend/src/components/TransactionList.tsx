@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transaction } from '../types/Transaction';
+import { Transaction, getTransactionTypeLabel } from '../types/Transaction';
 
 interface TransactionListProps {
   transactions: Transaction[];
@@ -27,7 +27,7 @@ const TransactionList: React.FC<TransactionListProps> = ({
   if (transactions.length === 0) {
     return (
       <div className="no-transactions">
-        <p>No transactions found. Start by adding your first transaction!</p>
+        <p>لا توجد معاملات. ابدأ بإضافة معاملتك الأولى!</p>
       </div>
     );
   }
@@ -36,12 +36,12 @@ const TransactionList: React.FC<TransactionListProps> = ({
     <div className="transaction-list">
       <div className="transaction-table">
         <div className="table-header">
-          <div className="col">Date</div>
-          <div className="col">Type</div>
-          <div className="col">Category</div>
-          <div className="col">Amount</div>
-          <div className="col">Notes</div>
-          <div className="col">Actions</div>
+          <div className="col">التاريخ</div>
+          <div className="col">النوع</div>
+          <div className="col">الفئة</div>
+          <div className="col">المبلغ</div>
+          <div className="col">ملاحظات</div>
+          <div className="col">الإجراءات</div>
         </div>
 
         {transactions.map((transaction, index) => (
@@ -49,7 +49,7 @@ const TransactionList: React.FC<TransactionListProps> = ({
             <div className="col">{formatDate(transaction.date)}</div>
             <div className="col">
               <span className={`transaction-type ${transaction.type?.toLowerCase()}`}>
-                {transaction.type}
+                {getTransactionTypeLabel(transaction.type)}
               </span>
             </div>
             <div className="col">{transaction.nameCategory}</div>
@@ -64,13 +64,13 @@ const TransactionList: React.FC<TransactionListProps> = ({
                 onClick={() => onEdit(transaction)}
                 className="btn btn-sm btn-edit"
               >
-                Edit
+                تعديل
               </button>
               <button
                 onClick={() => transaction.id && onDelete(transaction.id)}
                 className="btn btn-sm btn-delete"
               >
-                Delete
+                حذف
               </button>
             </div>
           </div>

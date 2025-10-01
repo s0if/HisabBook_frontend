@@ -120,8 +120,8 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>📊 HisabBook - Personal Finance Tracker</h1>
-        <p>Track your income and expenses in Shekels (₪)</p>
+        <h1>📊 دفتر الحساب - متتبع المالية الشخصية</h1>
+        <p>تتبع دخلك ومصروفاتك بالشيكل (₪)</p>
       </header>
 
       <main className="app-main">
@@ -141,13 +141,13 @@ function App() {
 
         <div className="transactions-section">
           <div className="section-header">
-            <h2>{isFiltered ? `Transactions for ${currentFilter.month}/${currentFilter.year}` : 'Recent Transactions'}</h2>
+            <h2>{isFiltered ? `المعاملات لشهر ${currentFilter.month}/${currentFilter.year}` : 'المعاملات الأخيرة'}</h2>
             <button
               onClick={() => setShowForm(true)}
               className="btn btn-primary"
               disabled={loading}
             >
-              + Add Transaction
+              + إضافة معاملة
             </button>
           </div>
 
@@ -158,7 +158,7 @@ function App() {
           />
 
           {loading ? (
-            <div className="loading">Loading transactions...</div>
+            <div className="loading">جاري تحميل المعاملات...</div>
           ) : (
             <TransactionList
               transactions={transactions}
